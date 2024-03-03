@@ -1,5 +1,5 @@
 from currency_api import CURRENCIES, get_exchange_data
-from functions import display_exchange_rates
+from functions import ExchangeRateDisplayer
 
 def get_user_input():
     while True:
@@ -18,7 +18,8 @@ def main():
 
         exchange_data = get_exchange_data(base_currency)
 
-        display_exchange_rates(exchange_data, base_currency)
+        displayer = ExchangeRateDisplayer(exchange_data, base_currency)
+        displayer.display_exchange_rates()
 
         if base_currency is None:
             break
